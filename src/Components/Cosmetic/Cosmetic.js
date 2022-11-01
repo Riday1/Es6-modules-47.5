@@ -1,16 +1,11 @@
 import React from 'react';
+import { addToDb } from '../Utilities/fakedb';
+
 
 const Cosmetic = (props) => {
     const { id, name, price } = props.cosmetic;
     const addToCard = (id) => {
-        const value = localStorage.getItem(id);
-        if (value) {
-            localStorage.setItem(id, +value + 1);
-            console.log(value)
-        }
-        else {
-            localStorage.setItem(id, 1);
-        }
+        addToDb(id);
     }
     return (
         <div style={{ border: '2px solid gray ', margin: '20px', padding: '10px' }}>
@@ -24,4 +19,3 @@ const Cosmetic = (props) => {
 
 export default Cosmetic;
 export { Cosmetic };
- 
