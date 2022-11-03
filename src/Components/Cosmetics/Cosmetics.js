@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cosmetic from '../Cosmetic/Cosmetic';
+import { getTotal } from '../Utilities/Utilities';
+
 
 const Cosmetics = () => {
     const [cosmetics, setCosmetics] = useState([]);
@@ -10,9 +12,15 @@ const Cosmetics = () => {
     }, [])
 
 
+    const total = getTotal(cosmetics)
+
+
+
+
     return (
         <div>
             <h1>Welcome to my Cosmetics site</h1>
+            <p>Total price :{total} </p>
             {
                 cosmetics.map(cosmetic => <Cosmetic
                     key={cosmetic.id}
@@ -22,5 +30,9 @@ const Cosmetics = () => {
         </div>
     );
 };
+
+
+
+
 
 export default Cosmetics;

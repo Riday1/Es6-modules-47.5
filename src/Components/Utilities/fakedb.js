@@ -28,12 +28,12 @@ const removeFromDb = (id) => {
     const cartObjFromDb = localStorage.getItem('shopping-cart');
     if (cartObjFromDb) {
         shoppingCart = JSON.parse(cartObjFromDb);
-        console.log(shoppingCart)
-        if (shoppingCart[id]) {
-            console.log('hola');
+        // console.log(shoppingCart)
+        if (id in shoppingCart) {
+            // console.log('hola');
             delete shoppingCart[id];
         }
-        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
     }
 }
 const deleteCartFromDb = (id) => {
